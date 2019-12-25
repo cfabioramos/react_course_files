@@ -19,9 +19,8 @@ class Appclass extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.quantidade !== this.state.quantidade) {
+        if (prevState.quantidade !== this.state.quantidade)
             console.log('componentDidUpdate')
-        }
     }
 
     componentWillUnmount() {
