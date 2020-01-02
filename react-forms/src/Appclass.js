@@ -6,15 +6,19 @@ class Appclass extends Component {
         super()
         this.state = {
             firstName: "Carlos",
-            lastName: ""
+            lastName: "",
+            informed: true,
+            details: "",
+            gender: "Feminino",
+            cor: "red"
         }
 
         this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange(event) {
-        const {name, value} = event.target
-        this.setState({[name]: value})
+        const {name, value, type, checked} = event.target
+        type==="checkbox" ? this.setState({[name]: checked}) : this.setState({[name]: value})
     }
 
     render() {
@@ -32,7 +36,40 @@ class Appclass extends Component {
                     value={this.state.lastName}
                     onChange={this.handleChange} />
                 <br />
-                <h3>{this.state.firstName} {this.state.lastName}</h3>
+                <label>
+                <input 
+                    type="checkbox"
+                    name="informed"
+                    checked={this.state.informed} 
+                    onChange={this.handleChange}/> Informado?
+                </label>
+                <br />
+                <textarea name="details" value={this.state.details} onChange={this.handleChange}/>
+                <br /><label>
+                <input 
+                    type="radio"
+                    name="gender"
+                    value="Masculino"
+                    onChange={this.handleChange}
+                    checked={this.state.gender === "Masculino"}/> Masculino
+                </label>
+                <label>
+                <input 
+                    type="radio"
+                    name="gender"
+                    value="Feminino"
+                    onChange={this.handleChange}
+                    checked={this.state.gender === "Feminino"}/> Feminino
+                </label>
+                <br/>
+                <label>Cor: </label>
+                <select name="cor" value={this.state.cor} onChange={this.handleChange}>
+                    <option value="">Selecione...</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                </select>
+                <h3>{this.state.firstName} {this.state.lastName} {this.state.informed? "Informado": "Desinformado"} {this.state.details} {this.state.gender} {this.state.cor}</h3>
 
             </div>
         )

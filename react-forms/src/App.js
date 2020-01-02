@@ -13,8 +13,13 @@ function App() {
     type === "checkbox" ? setForm( {...form, ...{[name]: checked} }) : setForm( {...form, ...{[name]: value} })
   }
 
+  const submitForm = (event) => {
+    event.preventDefault()
+    console.log(form)
+  }
+
   return (
-    <div>
+    <form onSubmit={submitForm}>
         <input type="text" 
           name="firstName" 
           placeholder="Primeiro Nome" 
@@ -52,7 +57,7 @@ function App() {
             onChange={handleChange}
             checked={form.gender === "Feminino"}/> Feminino
         </label>
-
+        <br />
         <label>Cor: </label>
         <select name="cor" value={form.cor} onChange={handleChange}>
           <option value="">Selecione...</option>
@@ -60,9 +65,10 @@ function App() {
           <option value="blue">Blue</option>
           <option value="green">Green</option>
         </select>
-
         <h3>{form.firstName} {form.lastName} {form.cor} {form.informed ? "Informado" : "Desinformado"} {form.details}</h3>
-    </div>
+        <br />
+        <button>Clique aqui</button>
+    </form>
   );
 }
 
