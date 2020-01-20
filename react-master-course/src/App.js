@@ -1,37 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './App.css'
-import Header from './components/Header'
+import MyInternalHeader from './components/MyInternalHeader'
+import Home from './pages/Home'
+import CalculoImposto from './components/CalculoImposto'
 
-function App () {
+export default function App () {
 
-  const [quantidade, setQuantidade] = useState(0)
-  const [buttonName] = useState('Meu botão')
-  const [items] = useState([])
-  const [itensCompra] = useState({nome: 'Ovos de quintal'})
-
+  const myCbFunctionAfterCalc = () => console.log('Realizou a operação de CB')
+  
   return (
     <div>
-      <Header titulo="Compras do mês"/>
-      <div>
-        <ul>
-          <h2>Lista compras: </h2>
-          <li>{itensCompra.nome}</li>
-          <li>Tomate</li>
-          <li>Cenoura</li>
-        </ul>
+      <MyInternalHeader />
+      <main>
+        <Home />
+        <section id="contact">
+          <h2>Contact</h2>
+          <main>
+            <p>Contato: 99999-9999</p>
+          </main>
+        </section>
+        <section id="about">
+          <h2>About Us</h2>
+          <main>
+            <p>Nossa empresa...</p>
+          </main>
+        </section>
+      </main>
 
-        <h3>Meus itens: </h3>
-        <div>{items.join()}</div>
-        
-        <p>Você clicou {quantidade} vezes</p>
-        <button onClick={() => {
-          setQuantidade(quantidade + 1)
-          items.push('item ' + quantidade)
-          } }>{buttonName}</button>
-
-      </div>
+      Resultado: <CalculoImposto valorA={2} valorB={3} cbFunction={myCbFunctionAfterCalc}/>
     </div>
   )
 }
-
-export default App
