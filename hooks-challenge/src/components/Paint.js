@@ -7,9 +7,6 @@ import randomColor from 'randomcolor'
 
 export default function Paint() {
 
-  const[colors, setColors] = useState([])
-  const[activeColor, setActiveColor] = useState(null)
-  
   const getColors = () => {
     const baseColor = randomColor().slice(1);
     fetch(`https://www.thecolorapi.com/scheme?hex=${baseColor}&mode=monochrome`)
@@ -20,8 +17,6 @@ export default function Paint() {
     })
   }
 
-  useEffect(getColors, [])
-  
   return (
     <div className="app">
       <header style={{ borderTop: `10px solid ${activeColor}` }}>
