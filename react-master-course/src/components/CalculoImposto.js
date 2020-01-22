@@ -3,7 +3,7 @@ import React from 'react'
 const varA = "Valor para o feeedback"
 
 export default function CalculoImposto({valorA, valorB, cbFunction}) {
-    
+
     const calculaImposto = () => 
         {
             console.log(varA)

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import MyInfo from './MyInfo';
+import MyInfo from './components/MyInfo'
 
 function App() {
   return (
