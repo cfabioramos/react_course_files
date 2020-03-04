@@ -1,10 +1,11 @@
-import React from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import ContadorComBug from "./ContadorComBug";
+import React from "react"
+import ContadorComBug from "./ContadorComBug"
+import MyErrorBoundary from "./ErrorBoundary"
+import { ErrorBoundary } from "react-error-boundary"
 
 const MyFallbackComponent = ({ componentStack, error }) => (
   <div>
-    <h2>Aconteceu algo errado.</h2>
+    <h3>Aconteceu algo errado. Veja o que foi:</h3>
     <details style={{ whiteSpace: "pre-wrap" }}>
       {error && error.toString()}
       <br />
@@ -15,8 +16,13 @@ const MyFallbackComponent = ({ componentStack, error }) => (
 
 export default function MyErrorComponent() {
   return (
-    <ErrorBoundary FallbackComponent={MyFallbackComponent}>
-      <ContadorComBug />
-    </ErrorBoundary>
-  );
+    <div>
+      <MyErrorBoundary>
+        <ContadorComBug />
+      </MyErrorBoundary>
+      <ErrorBoundary FallbackComponent={MyFallbackComponent}>
+        <ContadorComBug />
+      </ErrorBoundary>
+    </div>
+  )
 }

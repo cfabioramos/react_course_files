@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default class ContadorComBug extends React.Component {
 
@@ -15,7 +15,7 @@ export default class ContadorComBug extends React.Component {
     }
     
     render() {
-      if (this.state.counter === 5) {
+      if (this.state.counter === 3) {
         throw new Error('Quebrei!')
       }
       return <h1 onClick={this.handleClick}>{this.state.counter}</h1>
