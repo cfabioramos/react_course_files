@@ -1,5 +1,6 @@
 import React from "react"
 import "./App.css"
+import MyErrorBoundaryComponent from './components/MyErrorBoundaryComponent'
 
 export default class App extends React.Component {
 
@@ -28,7 +29,8 @@ export default class App extends React.Component {
       <div>
         <h2>Seja bem vindo!</h2> <br />
         <button onClick={() => this.setState({counter : this.state.counter + 1})}>Soma</button><br />
-        <h2>Quantidade: {this.state.counter}</h2>
+        <h2>Quantidade: {this.state.counter}</h2> <br/>
+        <MyErrorBoundaryComponent />
       </div>
     )
   }
